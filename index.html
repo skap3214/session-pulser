@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session Pulser</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <!-- Loading screen -->
+  <div id="loading-screen">
+    <div class="loading-inner">
+      <div class="loading-title">SESSION PULSER</div>
+      <div class="loading-status" id="loading-status">INITIALIZING</div>
+      <div class="loading-bar"><div class="loading-fill" id="loading-fill"></div></div>
+      <div class="loading-sub" id="loading-sub">extracting session data...</div>
+    </div>
+  </div>
+  <div id="app">
+    <header id="header">
+      <div class="header-left">
+        <h1 class="title">SESSION PULSER</h1>
+        <div class="header-stats" id="header-stats"></div>
+      </div>
+      <div class="header-right">
+        <span id="date-range" class="date-range"></span>
+        <span id="clock" class="clock"></span>
+        <button class="theme-cycle" id="theme-cycle" title="Dark"></button>
+        <span class="arrows">&gt;&gt;&gt;&gt;&gt;</span>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- LEFT: Sessions Panel -->
+      <section id="sessions-panel" class="panel">
+        <div class="panel-header">
+          <span class="panel-label">SESSIONS</span>
+          <span class="panel-count" id="sessions-count"></span>
+        </div>
+        <input type="text" id="session-search" class="search-input" placeholder="Search sessions ...">
+        <div class="filter-bar">
+          <button class="filter-btn active" data-sort="recent">RECENT FIRST</button>
+          <span class="dot-sep">&middot;</span>
+          <button class="filter-btn" data-sort="tokens">MOST TOKENS</button>
+          <span class="dot-sep">&middot;</span>
+          <div class="filter-dropdown">
+            <button class="filter-btn" id="project-filter-btn">ALL PROJECTS</button>
+          </div>
+        </div>
+        <div id="session-list" class="scrollable"></div>
+      </section>
+
+      <!-- CENTER: Terrain + Activity -->
+      <section id="center-panel">
+        <div id="terrain-section" class="panel">
+          <div class="panel-header">
+            <span class="panel-label">ACTIVITY TERRAIN</span>
+          </div>
+          <div class="terrain-subtitle" id="terrain-subtitle"></div>
+          <div id="terrain-container">
+            <div id="terrain-labels"></div>
+          </div>
+          <div id="terrain-slider">
+            <span class="slider-date" id="slider-start"></span>
+            <input type="range" id="time-scrubber" min="0" max="100" value="0">
+            <span class="slider-date" id="slider-end"></span>
+          </div>
+        </div>
+
+        <div id="activity-section" class="panel">
+          <div class="panel-header">
+            <span class="panel-label">ACTIVITY</span>
+          </div>
+          <div class="activity-controls">
+            <div class="tab-group" id="metric-tabs">
+              <button class="tab-btn" data-metric="sessions">SESSIONS</button>
+              <button class="tab-btn" data-metric="prompts">PROMPTS</button>
+              <button class="tab-btn" data-metric="toolCalls">TOOLS</button>
+              <button class="tab-btn active" data-metric="tokens">TOKENS</button>
+            </div>
+            <div class="tab-group" id="time-tabs">
+              <button class="tab-btn" data-range="week">WEEK</button>
+              <button class="tab-btn active" data-range="month">MONTH</button>
+              <button class="tab-btn" data-range="all">ALL TIME</button>
+            </div>
+          </div>
+          <div id="heatmap-container"></div>
+        </div>
+      </section>
+
+      <!-- RIGHT: Projects Panel -->
+      <div id="panel-resize-handle"></div>
+      <section id="projects-panel" class="panel">
+        <div class="panel-header">
+          <span class="panel-label">PROJECTS</span>
+          <span class="panel-count" id="projects-count"></span>
+        </div>
+        <div class="section-label">TOKENS BY PROJECT</div>
+        <div id="category-legend"></div>
+        <div id="projects-body">
+          <div id="treemap-container"></div>
+          <div id="project-list-wrapper">
+            <div class="section-label">ACTIVITY</div>
+            <div id="project-list" class="scrollable"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

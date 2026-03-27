@@ -1,0 +1,18 @@
+node_modules/
+dist/
+
+# Generated data contains personal session data - never commit
+public/data.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Playwright screenshots
+.playwright-screenshots/
+!screenshot.png
+.playwright-mcp/
