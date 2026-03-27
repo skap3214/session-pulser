@@ -15,4 +15,5 @@ Thumbs.db
 # Playwright screenshots
 .playwright-screenshots/
 !screenshot.png
+!demo.mp4
 .playwright-mcp/

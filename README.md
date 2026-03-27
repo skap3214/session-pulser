@@ -2,7 +2,7 @@
 
 A dashboard that visualizes your Claude Code usage — sessions, token consumption, project activity, and more — rendered as an interactive 3D terrain map.
 
-![Session Pulser](screenshot.png)
+https://github.com/skap3214/session-pulser/raw/main/demo.mp4
 
 ## Features
 
